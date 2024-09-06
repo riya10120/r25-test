@@ -1,11 +1,15 @@
-CC =gcc
+CC = gcc
 CFLAGS = -Og -g -Wall
 
-all: quine-gen
+# Default target
+all: build
 
+# Build the executable
 build:
-	gcc src/*.c lib/*.c -Iinclude -lm -o main.exe
-check:
+	$(CC) $(CFLAGS) src/*.c lib/*.c -Iinclude -lm -o main.exe
+
+# Run tests
+check: build
 	@echo "--------------------------------------------"
 	@echo "Checking..."
 	@echo "Test-1: "
@@ -20,11 +24,8 @@ check:
 	@echo "**** Success: ***"
 	@echo "--------------------------------------------"
 
-
+# Clean up build files
 clean:
-	rm -f test/sab_data[1]
-	rm -f test/sab_data[2]
-	rm -f test/sab_data[3]
-	rm -f main.exe
+	del main.exe
 
-.PHONY: clean check
+.PHONY: clean check all build

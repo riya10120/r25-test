@@ -1,24 +1,20 @@
 #include <stdint.h>
-#include <parsing.h>
+#include<stdio.h>
+#include "parsing.h"
 #include <math.h>
 // Implement interpolation here
 int interpolation(uint16_t channel) {
     int pwm;
-    // Assuming the channel value ranges from 0 to 2047 (11-bit)
-    // and the PWM range is 0 to 255
     if (channel > 1023) { // Forward
         pwm = (int)(128 + ((float)(channel - 1024) / 1023.0) * 127);
     } else { // Backward
         pwm = (int)(128 - ((float)(1023 - channel) / 1023.0) * 127);
     }
-    // Ensure the PWM is within the valid range
     pwm = (pwm < 0) ? 0 : (pwm > 255) ? 255 : pwm;
     return pwm;
 }
-// implement interpolation here
-int interpolation(uint16_t channel) {
-	// write interpolation code here
-}
+
+
 // creating 11 bit channel
 uint16_t *parse_buffer(uint8_t buff[]) { 
 		

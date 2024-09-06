@@ -44,20 +44,14 @@ If you are able to compile your code successfully you should see something like 
 
 # Solution
 ## Understanding
-Describe what you understood about the problem.
-parsing.c: Contains functions for parsing SBUS packets and interpolating channel values.
-serial.c: Contains functions for handling serial communication with SBUS and Sabertooth devices.
-main.c: The entry point for the application, which integrates the functionalities from parsing.c and serial.c.
-Makefile: Used for automating the build process.
-i usdertood abt the process for moving rover forward and backward
+
+The task is to take a channel value from a motor driver (Sabertooth 2x60) in serial mode and convert it into a format that the motor driver accepts, so that the rover can be controlled to move forward or backward.
  
 
 ## Thought Process
-After understanding the problem, describe how you decided to proceed towards solving the question.
-first i figured out  the problem statement and the solution for it and started working on it by cloning the repository i wasnt able to run the code cus i dont have the mmake file 
-
+To address the problem, I decided to implement an interpolation function that converts the channel value into a PWM signal compatible with the Sabertooth 2x60 motor driver's requirements. This involves mapping the input channel values to the motor driver's expected range for forward or backward motion based on the datasheet specifications.
 ## Implementation
-How did you decide to implement your solution.
+so first i find out the algorithm for interpolation function using ai and then i implemented it on the cloned repository .i made all the changes according to .i got stuck at the compilation part as i dont have the make tool supporting file so i went back home i installed the necessary packages after that compiled it it was showing error[2] .i tried to figure out what was the error ,i rechecked everything ,i used ai but still couldnt get that.so execpt that compilation part i tried my best to solve this problem .
 
 Mention the details, such as the scaling used in the interpolation and how you tested it.
 
