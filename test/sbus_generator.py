@@ -47,8 +47,8 @@ def SBus_DecodeFrame(packet):
     return channel
 
 def interpolation(ch):
-    # Apply the interpolation formula
-    return round(1 + (ch - 0) * (127 - 1) / (2047 - 0))
+    # Apply the interpolation formula to map channel value to PWM range 0-255
+    return round((ch - 0) * (255 - 0) / (2047 - 0))
 
         
         

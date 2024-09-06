@@ -10,32 +10,32 @@ int main(int argc, char** argv) {
 	FILE *sbus; 
 	FILE *sabertooth;
 
-	// to store sbus packets
-	uint8_t sbus_packet[15];
+	// To store SBUS packets
+	uint8_t sbus_packet[25];
 
-	// to store value of indiviual RC channel
+	// To store value of individual RC channel
 	uint16_t *channel;
 
-	// pwm value after interpolation 
+	// PWM value after interpolation 
 	int pwm;
 
-	// opening serial port for serial communication with Sabertooth and SBUS
+	// Opening serial port for communication with Sabertooth and SBUS
 	sbus = open_file(port_name_1, "rb");
 	sabertooth = open_file(port_name_2, "w+");
 	
-	// read data from RC transmitter using sbus
-	read_SBUS(sbus_packet, uint8_t, 25, sbus);
+	// Read data from RC transmitter using SBUS
+	read_SBUS(sbus_packet, sizeof(uint8_t), 25, sbus);
 
-	// parsing sbus packet
+	// Parsing SBUS packet
 	channel = parse_buffer(sbus_packet);
 
-	// get pwm range for Sabertooth 1			 
-	pwm = interpolation(channel[0]);		//  write								
-							//  to
-	// write data to Sabertooth 1			//  sabertooth	
-	write_to_SB(sabertooth, "%d", pwm);		
+	// Get PWM range for Sabertooth 1			 
+	pwm = interpolation(channel[0]); // Apply interpolation to channel[0]
+	
+	// Write data to Sabertooth 1
+	write_to_SB(sabertooth, "%d", pwm);
 
-	// closing all serial port 
+	// Closing all serial ports 
 	close_file(sbus);
 	close_file(sabertooth);
 }

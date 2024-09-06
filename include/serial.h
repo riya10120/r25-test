@@ -17,3 +17,5 @@ void write_to_SB(FILE* fd, char* fmt, ...);
 // Function to close the serial port
 void close_file(FILE* fd);
 
+// Function to interpolate channel and return pwm value
+int interpolation(uint16_t channel);

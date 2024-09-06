@@ -25,5 +25,6 @@ clean:
 	rm -f test/sab_data[1]
 	rm -f test/sab_data[2]
 	rm -f test/sab_data[3]
+	rm -f main.exe
 
 .PHONY: clean check
