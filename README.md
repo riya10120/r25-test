@@ -45,9 +45,16 @@ If you are able to compile your code successfully you should see something like 
 # Solution
 ## Understanding
 Describe what you understood about the problem.
+parsing.c: Contains functions for parsing SBUS packets and interpolating channel values.
+serial.c: Contains functions for handling serial communication with SBUS and Sabertooth devices.
+main.c: The entry point for the application, which integrates the functionalities from parsing.c and serial.c.
+Makefile: Used for automating the build process.
+i usdertood abt the process for moving rover forward and backward
+ 
 
 ## Thought Process
 After understanding the problem, describe how you decided to proceed towards solving the question.
+first i figured out  the problem statement and the solution for it and started working on it by cloning the repository i wasnt able to run the code cus i dont have the mmake file 
 
 ## Implementation
 How did you decide to implement your solution.
